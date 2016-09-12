@@ -38,13 +38,14 @@ class Converser:
   def process_message(self, message):
     for topic in self.topics.keys():
       if topic.lower() in message['text'].lower():
-        result = (0, "------- Here is the download statistics of [[ eclcli ]] ------- \n\n")
-        result = result+commands.getstatusoutput('vanity eclcli')
+        result = (0, "`Genie Says...`\n------- Here is the download statistics of [[ eclcli ]] ------- \n\n")
+        result1 = commands.getstatusoutput('vanity eclcli')
+        result1 = result1[1].split("***", 1)
 
         #response = self.topics[topic].format(**message)
         #if response.startswith("sys:"):
         #response = os.popen(response[4:]).read()
-        print("Posting to [%s]: %s" % (message['channel'], result[1]+result[3]))
+        print("Posting to [%s]: %s" % (message['channel'], result[1]+result1[0]))
         self.post(message['channel'], result[1]+result[3])
 
   def post(self, channel, message):
