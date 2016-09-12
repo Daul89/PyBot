@@ -38,7 +38,7 @@ class Converser:
   def process_message(self, message):
     for topic in self.topics.keys():
       if topic.lower() in message['text'].lower():
-        result = (0, "`Genie Says...`\n------- Here is the download statistics of [[ eclcli ]] ------- \n\n")
+        result = (0, "`Genie Says...`\n------- Here are the download statistics of [[ eclcli ]] ------- \n\n")
         result1 = commands.getstatusoutput('vanity eclcli')
         result1 = result1[1].split("***", 1)
 
