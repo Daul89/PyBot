@@ -46,7 +46,7 @@ class Converser:
         #if response.startswith("sys:"):
         #response = os.popen(response[4:]).read()
         print("Posting to [%s]: %s" % (message['channel'], result[1]+result1[0]))
-        self.post(message['channel'], result[1]+result[3])
+        self.post(message['channel'], result[1]+result1[0])
 
   def post(self, channel, message):
     chan = self.client.server.channels.find(channel)
