@@ -1,6 +1,3 @@
 {
-	"what time is it": "Whatever time it needs to be.",
-	"who am I": "You are human meatbag identifier `{user}`.",
-	"uptime": "sys:uptime",
-	"stats":"vanity eclcli"
+	"hey stats":"vanity eclcli"
 }

@@ -38,8 +38,7 @@ class Converser:
   def process_message(self, message):
     for topic in self.topics.keys():
       if topic.lower() in message['text'].lower():
-        result = (0, "ダウンロードステーツやで！！\n\n")
-        print(result)
+        result = (0, "------- Here is the statatic data of [[ eclcli ]] ------- \n\n")
         result = result+commands.getstatusoutput('vanity eclcli')
 
         #response = self.topics[topic].format(**message)
