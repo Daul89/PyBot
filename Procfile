@@ -1,1 +1,1 @@
-web: python PyBot/converse.py PyBot/topics.json 
+web: python converse/converse.py converse/topics.json 
