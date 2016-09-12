@@ -1,6 +1,7 @@
 #!/usr/bin/env python
+# coding: utf-8
 
-import argparse, ConfigParser, sys, json, os
+import argparse, ConfigParser, sys, json, os, commands
 from slackclient import SlackClient
 from time import sleep
 
@@ -37,11 +38,15 @@ class Converser:
   def process_message(self, message):
     for topic in self.topics.keys():
       if topic.lower() in message['text'].lower():
-        response = self.topics[topic].format(**message)
-        if response.startswith("sys:"):
-          response = os.popen(response[4:]).read()
-        print("Posting to [%s]: %s" % (message['channel'], response))
-        self.post(message['channel'], response)
+        result = (0, "ダウンロードステーツやで！！\n\n")
+        print(result)
+        result = result+commands.getstatusoutput('vanity eclcli')
+
+        #response = self.topics[topic].format(**message)
+        #if response.startswith("sys:"):
+        #response = os.popen(response[4:]).read()
+        print("Posting to [%s]: %s" % (message['channel'], result[1]+result[3]))
+        self.post(message['channel'], result[1]+result[3])
 
   def post(self, channel, message):
     chan = self.client.server.channels.find(channel)
